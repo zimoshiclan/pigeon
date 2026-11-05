@@ -1,0 +1,24 @@
+[package]
+name = "pigeon-cli"
+description = "Pigeon's link finder on the command line, for testing and debugging."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+# Not "pigeon": Windows filenames ignore case, so it would overwrite the app's Pigeon.exe.
+name = "pigeon-cli"
+path = "src/main.rs"
+
+[dependencies]
+pigeon-core = { path = "../pigeon-core" }
+
+[target."cfg(windows)".dependencies]
+windows = { version = "0.62.2", features = [
+    "Win32_Foundation",
+    "Win32_System_Com",
+    "Win32_System_SystemInformation",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_WindowsAndMessaging",
+] }

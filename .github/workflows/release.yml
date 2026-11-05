@@ -1,0 +1,25 @@
+# Push a tag like v0.2.0 and this builds Pigeon.exe and attaches it to a
+# GitHub Release, so people can download it without installing Rust.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo test
+      - run: cargo build --release
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/release/Pigeon.exe
+            target/release/pigeon-cli.exe
+          generate_release_notes: true
