@@ -5,7 +5,7 @@ members = ["crates/pigeon-core", "crates/pigeon-cli", "crates/pigeon-app"]
 [workspace.package]
 version = "0.2.0"
 edition = "2024"
-license = "MIT"
+license = "Apache-2.0"
 repository = "https://github.com/zimoshiclan/pigeon"
 
 [profile.release]

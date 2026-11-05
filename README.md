@@ -162,4 +162,4 @@ Add a function for it in `crates/pigeon-core/src/links.rs` that returns `Kind::P
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+Apache License 2.0. See [LICENSE](LICENSE).
